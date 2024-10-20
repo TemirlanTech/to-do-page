@@ -1,0 +1,182 @@
+@import url(https://fonts.googleapis.com/css?family=Agdasima:regular,700);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --white: rgba(255, 255, 255, 0.859);
+    --font-life: "Agdasima", sans-serif;
+    --black: rgb(23, 19, 19);
+    --blue: rgb(168, 220, 255);
+}
+.body {
+    background: rgb(243,76,76);
+    background: linear-gradient(135deg, rgba(243,76,76,1) 0%, rgba(0,246,255,1) 100%) no-repeat fixed;
+    height: 100%;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.to-do-app {
+    margin: 100px 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 50px;
+    border-radius: 20px;
+    position: relative;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.to-do-app::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 100%;
+    background-image: conic-gradient(from var(--angle), transparent 70%, yellow);
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    z-index: -1;
+    padding: 3px;
+    border-radius: 20px;
+    animation: 3s spin linear infinite;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    } to {
+        --angle: 360deg;
+    }
+}
+
+.to-do-app::before {
+    filter: blur(1.5rem);
+    opacity: .8;
+}
+
+
+
+.to-do-app > h2 {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-life);  
+}
+.to-do-app > h2 img {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;;
+}
+
+.create {
+    width: 100%;
+    display: flex;
+    position: relative;
+    margin: 20px 0;
+}
+
+
+.input {
+    width: 90%;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    padding: 2px 5px;
+    margin: 0 auto;
+    position: relative;
+    border: solid black 3px;
+    border-radius: 5px;
+    font-family: var(--font-life);
+}
+
+.button {
+    width: 10%;
+    margin-left: 5px;
+    background-color: var(--white);
+    font-family: var(--font-life);
+    font-size: 1.8rem;
+    border: 3px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: background-color .1s ease-in, color .1s ease-in, transform .09s ease-in;
+}
+
+.button:hover {
+    background-color: var(--black);
+    color: var(--white);
+    border: var(--black);
+}
+.button:active  {
+    background-color: var(--black);
+    color: var(--blue);
+    transform: scale(.9);
+}
+
+.to-do-wrapper > h3 {
+    font-family: var(--font-life);
+    font-size: 22px;
+}
+.to-do-wrapper > h3 > span {
+    font-size: 2rem;
+}
+
+ul li {
+    list-style: none;
+    font-size: 25px;
+    font-family: var(--font-life);
+    font-weight: 600;
+    padding: 12px 8px 12px 50px;
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before {
+    content: "";
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(./unchecked.svg);
+    background-size: cover;
+    top: 12px;
+    left: 8px;
+}
+
+ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before {
+    background-image: url(./checked.svg);
+}
+
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 800;
+}
+ul li span:hover {
+    background-color: #edeef0;
+
+}
